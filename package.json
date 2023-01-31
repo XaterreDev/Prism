@@ -1,0 +1,24 @@
+{
+  "name": "prism",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon main.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@discordjs/builders": "v1.4",
+    "@discordjs/rest": "v1.5",
+    "colors": "^1.4.0",
+    "discord-api-types": "^0.37.31",
+    "discord.js": "v13.8",
+    "moment": "^2.29.4",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.20",
+    "openai": "^3.1.0"
+  }
+}
