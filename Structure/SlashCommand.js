@@ -25,6 +25,26 @@ module.exports = async bot => {
         .setName("userinfo")
         .setDescription("Permet de connaître les informations d'un utilisateur.")
         .addUserOption(options => options.setName("user").setDescription("L'utilisateur que vous voulez savoir les informations")),
+        new SlashCommandBuilder()
+        .setName("ping")
+        .setDescription("Affice la latence du bot et de l'API"),
+        new SlashCommandBuilder() 
+        .setName("antilink")
+        .setDescription("Permet d'activer ou de désactiver le module d'anti-lien")
+        .addStringOption(option => option.setName("choix").setDescription("Votre choix").addChoices({name : "on", value : "on"}, {name : "off", value : "off"}).setRequired(true)), 
+        new SlashCommandBuilder() 
+        .setName("renew")
+        .setDescription("Permet de re-créer un channel."),
+        new SlashCommandBuilder()
+        .setName("lock")
+        .setDescription("Permet de verrouiller un salon")
+        .addChannelOption(option => option.setName("salon").setDescription("Le salon a verrouiller").setRequired(true))
+        .addStringOption(option => option.setName("raison").setDescription("Indiquer une raison")),
+        new SlashCommandBuilder()
+        .setName("unlock")
+        .setDescription("Permet de déverrouiller un salon")
+        .addChannelOption(option => option.setName("salon").setDescription("Le salon a déverrouiller").setRequired(true))
+        .addStringOption(option => option.setName("raison").setDescription("Indiquer une raison")),
     ];
     commands.push.toString(commands)
     

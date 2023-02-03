@@ -12,3 +12,5 @@ module.exports = new Event("ready", async bot => {
         console.log(`Le bot à changé de statut pour ${randomActi}`.bgRed)
     }, 4000);
 })
+
+

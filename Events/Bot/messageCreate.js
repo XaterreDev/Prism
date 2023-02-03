@@ -1,5 +1,6 @@
 const Discord = require("discord.js")
 const Event = require("../../Structure/Event")
+const config = require("../../Config/owners.json")
 const { Configuration, OpenAIApi } = require("openai")
 module.exports = new Event("messageCreate", async (bot, message) => {
     if (message.author.bot) return
@@ -22,17 +23,26 @@ module.exports = new Event("messageCreate", async (bot, message) => {
         let args = messageArray.slice(1)
 
         db.query(`SELECT * FROM serveur WHERE guildID = ${message.guild.id}`, async (err, req) => {
-            if(req[0].anti_link === "on"){
-                bot.function.anti_link(message)
-            } else {
-                return
-            }
+            
+            
+                if(req[0].anti_link === "on"){
+                    if(config.owners.includes(message.author.id)) {
+                        return console.log("Lien non supprimé car Owner.")
+                    } else {
+                        bot.function.anti_link(message)
+                    }
+                
+                } else {
+                    return
+                }
+        
+           
         })
 
 
         if (message.channel.id === req[0].chatgptID) {
             const configuration = new Configuration({
-                apiKey: "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",
+                apiKey: "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",
             });
     
             const openai = new OpenAIApi(configuration);

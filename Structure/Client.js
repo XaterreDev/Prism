@@ -17,6 +17,10 @@ class Client extends Discord.Client {
         this.snipe = new Map(), 
         this.db = require("./Database")
         this.color = "#5865F2"    
+        this.function = {
+            anti_link : require("../Fonctions/searchLinks"), 
+            createID : require("../Fonctions/createID")
+        }
     }
 
 
